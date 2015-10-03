@@ -4,14 +4,33 @@
 						<div class="item item-divider">Lights</div>
 						<div class="item item-body">
 								<form>
-										<ion-toggle ng-model="powerTail.checked" ng-checked="powerTail.checked" ng-change="updatePowerTail()">Light Switch</ion-toggle>
+										<ion-toggle ng-model="powerTail.checked" ng-checked="powerTail.checked" ng-change="updatePowerTail()" ng-disabled="true">Light Switch</ion-toggle>
 
 										<label class="item item-input">
-											<span class="input-label">Temperature</span>
+											<span class="input-label">Current Temperature</span>
 											<input type="text" ng-value="particle.temperature | number:2">
 										</label>
+
+										
+
+
 								</form>
 						</div>
+				</div>
+				<div class="card">
+					<div class="item item-divider">
+			    Set at: {{particle.triggerTemp.set}}
+			  </div>
+					<div class="item item-text-wrap">
+						<h1>Change to: {{particle.triggerTemp.value}}</h1>
+						<form>
+							<div class="item range">
+							  <i class="icon ion-ios-moon-outline"></i>
+							  <input type="range" min="{{particle.triggerTemp.min}}" max="{{particle.triggerTemp.max}}" value="{{particle.triggerTemp.value}}" step="{{particle.triggerTemp.step}}" ng-model="particle.triggerTemp.value" ng-change="setTriggerTemp()">
+							  <i class="icon icon ion-ios-sunny"></i>
+							</div>
+						</form>
+					</div>
 				</div>
 		</ion-content>
 </ion-view>

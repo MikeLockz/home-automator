@@ -2,7 +2,6 @@ angular.module('app.services', [])
 
 .factory('Automator', ['$http', 'PARTICLE_CREDENTIALS', '$httpParamSerializerJQLike', 'PARTICLE', function($http, PARTICLE_CREDENTIALS, $httpParamSerializerJQLike, PARTICLE) {
 	return {
-		
 		callFunction: function(functionName, data) {
 			return $http({
 				url: PARTICLE.baseUrl + '/devices/' + PARTICLE.deviceId + '/' + functionName,
@@ -25,4 +24,32 @@ angular.module('app.services', [])
 			});
 		}
 	}
-}]);
+}])
+
+// .factory('StreamHandler', function(CookieHandler, MessageStream) {
+// 	var StreamHandler = {
+// 		set: function() {
+// 			var source = new EventSource(PARTICLE.baseUrl + '/events');
+// 			MessageStream.get() = source;
+// 		},
+
+// 		get: function() {
+// 			var source = MessageStream.get();
+
+// 			source.onMessage = function(event) {
+// 				console.log(event);
+// 			}
+// 			source.onError = function(error) {
+// 				console.log(error);
+// 			}
+// 		},
+
+// 		kill: function() {
+// 			var source = MessageStream.get();
+// 			source.close();
+// 		}
+// 	}
+
+// 	return StreamHandler;
+// })
+;
